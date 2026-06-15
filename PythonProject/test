@@ -1,0 +1,60 @@
+1. What is  the latest version of python?
+A: Python 3.14
+
+2. What are the main features of python language?
+A: 1) Python is a high level programming language.
+2) Machine-independent
+3) User-friendly syntax
+We use indentation for different sections
+4) General-purpose
+It is used for many purposes like AI, machine learning, web applications, data science, software testing, game
+development and networking field
+5) Interpreted
+It uses line by line execution. The interpreter converts high level language to byte code.
+6) Portable
+It can be used in any operating system like Windows, Linux, Ubuntu, Mac.
+7) Dynamic type
+We don't have to declare the data type of the variable explicitly. During the runtime, with the help of the interpreter
+it detects the data type of the variable according to the value assigned to the variable.
+8) Multi-programming paradigm-supporting
+It supports both function oriented programming and object oriented programming.
+9) Open source
+It is free of cost.
+10) Large community supported
+11) It has a large library support
+
+3. What are the three main libraries of python?
+NumPy, Pandas, Pillow
+
+4. What are the different data types in python? With example.
+A: 1) Number - int, float, complex
+2) Text - string
+A string starts and ends with double quotes " ".
+3) Sequences
+a) Lists - A list is a heterogeneous collection of elements. It starts and ends with square brackets [].
+b) Tuples - It starts and ends with parentheses ()
+4) Sets
+A set is an unordered collection of elements. It has no duplicate element in it. It starts and ends with curly
+brackets {}. It is a mutable data type.
+5) Dictionary
+A dictionary is denoted by dict. It is a combination of key and value pairs. It provides a mapping of keys to values.
+6) Boolean type
+It has two values - true and false.
+7) Null data type - it means the variable is empty.
+
+
+5. Given s = "Hello world"
+Print the last 4 letters
+
+6. Declare a list of 5 food items
+Add new food item to the list.
+Update the third food item.
+Print the last food item.
+
+7. Given a Dictionary
+S={"alice":90,"bob":85,"Charlie":76,"mike":74}
+Print the grade of Charlie
+Update the grade of bob to 90
+Add new item "sam":75 to the dictionary
+Print the total no. of students in the dictionary
+Print all student names in the given dictionary
