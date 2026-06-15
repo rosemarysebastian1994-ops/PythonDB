@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rowspan</title>
+    <style>
+        table, th, td{
+            border:3px solid red;
+            border-collapse:collapse;
+            padding:5px;
+        }
+        table{
+            background-color:lightblue;
+            width:25%;
+        }
+        caption{
+            text-align:center;
+            font-size:35px;
+            font-weight:bold;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <caption>Rowspan</caption>
+        <tr>
+            <th>Name</th>
+            <td>Arun</td>
+        </tr>
+        <tr>
+            <th rowspan="2">Phone</th>
+            <td>12345</td>
+        </tr>
+        <tr>
+            <td>5876879</td>
+        </tr>
+        <tr>
+            <th>Place</th>
+            <td>Ekm</td>
+        </tr>
+    </table>
+</body>
+</html>
