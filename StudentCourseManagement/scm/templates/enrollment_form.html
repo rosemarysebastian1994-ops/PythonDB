@@ -1,0 +1,26 @@
+{% extends 'admin_dashboard.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<div class="container mt-4">
+
+<h2>Enroll Student</h2>
+
+<form method="post">
+
+{% csrf_token %}
+
+{{ form|crispy }}
+
+<button
+class="btn btn-success">
+
+Enroll
+
+</button>
+
+</form>
+
+</div>
+
+{% endblock %}

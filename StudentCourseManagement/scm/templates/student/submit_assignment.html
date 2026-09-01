@@ -1,0 +1,58 @@
+{% extends 'student_dashboard.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<div class="container mt-4">
+
+    <div class="card">
+
+        <div class="card-header">
+
+            <h3>{{ assignment.title }}</h3>
+
+        </div>
+
+        <div class="card-body">
+
+            <p>
+                <strong>Course:</strong>
+                {{ assignment.course.name }}
+            </p>
+
+            <p>
+                <strong>Description:</strong>
+                {{ assignment.description }}
+            </p>
+
+            <p>
+                <strong>Due Date:</strong>
+                {{ assignment.due_date }}
+            </p>
+
+            <hr>
+
+            <form method="post"
+                  enctype="multipart/form-data">
+
+                {% csrf_token %}
+
+                {{ form|crispy }}
+
+                <button class="btn btn-success">
+                    Submit Assignment
+                </button>
+
+                <a href="{% url 'college:student_assignments' %}"
+                   class="btn btn-secondary">
+                    Cancel
+                </a>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

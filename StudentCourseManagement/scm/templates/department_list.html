@@ -1,0 +1,49 @@
+{% extends 'admin_dashboard.html' %}
+
+{% block content %}
+
+<h2>Departments</h2>
+
+<a href="{% url 'college:department_create' %}">
+    Add Department
+</a>
+
+<table class="table table-bordered table-striped">
+
+<tr>
+
+<th>Name</th>
+
+<th>Description</th>
+
+<th>Actions</th>
+
+</tr>
+
+{% for department in departments %}
+
+<tr>
+
+<td>{{ department.name }}</td>
+
+<td>{{ department.description }}</td>
+
+<td>
+
+<a href="{% url 'college:department_update' department.id %}">
+Edit
+</a>
+
+<a href="{% url 'college:department_delete' department.id %}">
+Delete
+</a>
+
+</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+{% endblock %}

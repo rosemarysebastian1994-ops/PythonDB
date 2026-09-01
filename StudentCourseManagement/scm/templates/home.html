@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Welcome to Student Course Management System</h2>
+<section class="home_bg hb_height" style="background-image: url(static/img/bg/home-bg.jpg);  background-size:cover; background-position: center center;">
+			<div class="container">
+				<div class="row">
+				  <div class="col-lg-6 col-sm-12 col-xs-12">
+					<div class="hero-text ht_top">
+						<h1><span>Smart Study</span> Where Knowledge Meets the Web</h1>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, consectetur adipiscing elit tempor ut labore</p>
+					</div>
+					<div class="home_sb">
+						<form action="{% url 'college:search' %}" method='post' class="banner_subs">
+							{% csrf_token %}
+							<input type="search" name="q" class="form-control home_si" placeholder="Search your course here" required="required">
+							<button type="submit" class="subscribe__btn">Search <i class="fa fa-paper-plane-o"></i></button>
+						</form>
+					</div>
+				  </div><!--- END COL -->
+				  <div class="col-lg-6 col-sm-12 col-xs-12">
+					<div class="hero-text-img">
+						<img src="static/img/home-img2.png" class="img-fluid" alt="" />
+					</div>
+				  </div><!--- END COL -->
+				</div><!--- END ROW -->
+			</div><!--- END CONTAINER -->
+		</section>
+
+{% endblock %}

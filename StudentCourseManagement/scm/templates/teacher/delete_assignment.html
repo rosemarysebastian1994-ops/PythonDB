@@ -1,0 +1,42 @@
+{% extends 'teacher_dashboard.html' %}
+
+{% block content %}
+
+<div class="container mt-4">
+
+<div class="alert alert-danger">
+
+<h4>Delete Assignment</h4>
+
+<p>
+
+Are you sure you want to delete
+
+<strong>{{ assignment.title }}</strong>?
+
+</p>
+
+<form method="post">
+
+{% csrf_token %}
+
+<button class="btn btn-danger">
+
+Yes, Delete
+
+</button>
+
+<a href="{% url 'college:course_assignments' assignment.course.id %}"
+class="btn btn-secondary">
+
+Cancel
+
+</a>
+
+</form>
+
+</div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,65 @@
+{% extends 'admin_dashboard.html' %}
+
+{% block content %}
+
+<h2>Courses</h2>
+
+<a href="{% url 'college:course_create' %}">
+    Add Course
+</a>
+
+<table class="table table-bordered table-striped">
+
+<tr>
+
+<th>Department</th>
+
+<th>Course Name</th>
+
+<th>Course Code</th>
+
+<th>Teacher</th>
+
+<th>Description</th>
+
+<th>Credits</th>
+
+<th>Actions</th>
+
+</tr>
+
+{% for course in courses %}
+
+<tr>
+
+<td>{{ course.department.name }}</td>
+
+<td>{{ course.course_name }}</td>
+
+<td>{{ course.course_code }}</td>
+
+<td>{{ course.teacher.user.username }}</td>
+
+<td>{{course.description}}</td>
+
+<td>{{course.credits}}</td>
+
+<td>
+
+<a href="{% url 'college:course_update' course.id %}">
+Edit
+</a>
+
+<a href="{% url 'college:course_delete' course.id %}">
+Delete
+</a>
+
+</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+{% endblock %}

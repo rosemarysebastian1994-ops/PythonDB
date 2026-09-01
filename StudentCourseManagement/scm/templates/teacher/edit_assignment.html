@@ -1,0 +1,32 @@
+{% extends 'teacher_dashboard.html' %}
+
+{% block content %}
+
+<div class="container mt-4">
+
+<h2>Edit Assignment</h2>
+
+<form method="post">
+
+{% csrf_token %}
+
+{{ form.as_p }}
+
+<button class="btn btn-success">
+
+Update Assignment
+
+</button>
+
+<a href="{% url 'college:course_assignments' assignment.course.id %}"
+class="btn btn-secondary">
+
+Cancel
+
+</a>
+
+</form>
+
+</div>
+
+{% endblock %}

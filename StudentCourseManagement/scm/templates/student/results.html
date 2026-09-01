@@ -1,0 +1,41 @@
+{% extends 'student_dashboard.html' %}
+
+{% block content %}
+<table class="table table-bordered">
+
+<tr>
+
+<th>Course</th>
+<th>Assignment</th>
+<th>Marks</th>
+<th>Feedback</th>
+
+</tr>
+
+{% for submission in submissions %}
+
+<tr>
+
+<td>{{ submission.assignment.course.course_name }}</td>
+
+<td>{{ submission.assignment.title }}</td>
+
+<td>
+
+{% if submission.marks is not None %}
+{{ submission.marks }}
+{% else %}
+Pending
+{% endif %}
+
+</td>
+
+<td>{{ submission.feedback }}</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+{% endblock %}

@@ -1,0 +1,130 @@
+{% extends 'teacher_dashboard.html' %}
+
+{% block content %}
+
+<div class="container mt-5">
+
+    <div class="card shadow">
+
+        <div class="card-header">
+            <h3>
+                Mark Attendance
+            </h3>
+
+            <p class="mb-0">
+                Course:
+                <strong>{{ course.course_name }}</strong>
+            </p>
+        </div>
+
+        <div class="card-body">
+
+            <form method="POST">
+
+                {% csrf_token %}
+
+                <div class="mb-4">
+
+                    <label class="form-label">
+                        Attendance Date
+                    </label>
+
+                    <input
+                        type="date"
+                        name="date"
+                        class="form-control"
+                        value="{{ today|date:'Y-m-d' }}"
+                        required
+                    >
+
+                </div>
+
+                <table class="table table-bordered">
+
+                    <thead class="table-dark">
+
+                        <tr>
+                            <th>#</th>
+                            <th>Student</th>
+                            <th>Present</th>
+                            <th>Absent</th>
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        {% for enrollment in enrollments %}
+
+                        <tr>
+
+                            <td>
+                                {{ forloop.counter }}
+                            </td>
+
+                            <td>
+                                {{ enrollment.student }}
+                            </td>
+
+                            <td>
+
+                                <input
+                                    type="radio"
+                                    name="status_{{ enrollment.student.id }}"
+                                    value="present"
+                                    required
+                                >
+
+                            </td>
+
+                            <td>
+
+                                <input
+                                    type="radio"
+                                    name="status_{{ enrollment.student.id }}"
+                                    value="absent"
+                                >
+
+                            </td>
+
+                        </tr>
+
+                        {% empty %}
+
+                        <tr>
+                            <td colspan="4"
+                                class="text-center">
+
+                                No students are enrolled
+                                in this course.
+
+                            </td>
+                        </tr>
+
+                        {% endfor %}
+
+                    </tbody>
+
+                </table>
+
+                {% if enrollments %}
+
+                <button
+                    type="submit"
+                    class="btn btn-success">
+
+                    Save Attendance
+
+                </button>
+
+                {% endif %}
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="mt-5 p-3 bg-light">
+        <h1 class="text-center">Searching Detail</h1>
+        <div class="d-flex justify-content-center">
+        <ol>
+            {% for c in courses %}
+            <li>Course Details</li>
+            <ul>
+                <li>{{c.course_name}}</li>
+                <li>{{c.course_code}}</li>
+                <li>{{c.department.name}}</li>
+                <li>{{c.teacher.user.username}}</li>
+                <li>{{c.description}}</li>
+                <li>{{c.credits}}</li>
+            </ul>
+            {% endfor %}
+        </ol>
+        </div>
+    </div>
+{% endblock %}

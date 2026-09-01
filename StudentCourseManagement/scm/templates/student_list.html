@@ -1,0 +1,61 @@
+{% extends 'admin_dashboard.html' %}
+
+{% block content %}
+
+<h2>Students</h2>
+
+<a href="{% url 'college:student_create' %}">
+    Add Student
+</a>
+
+<table class="table table-bordered table-striped">
+
+<tr>
+
+<th>Name</th>
+
+<th>Admission No.</th>
+
+<th>Year</th>
+
+<th>Phone</th>
+
+<th>Department</th>
+
+<th>Actions</th>
+
+</tr>
+
+{% for student in students %}
+
+<tr>
+
+<td>{{ student.user.username }}</td>
+
+<td>{{ student.admission_no }}</td>
+
+<td>{{student.year}}</td>
+
+<td>{{student.phone}}</td>
+
+<td>{{student.department.name}}</td>
+
+<td>
+
+<a href="{% url 'college:student_update' student.id %}">
+Edit
+</a>
+
+<a href="{% url 'college:student_delete' student.id %}">
+Delete
+</a>
+
+</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+{% endblock %}

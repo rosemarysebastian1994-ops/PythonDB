@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block navbar %}
+		<!-- START NAVBAR -->
+		<div id="navigation" class="navbar-light bg-faded site-navigation">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-20 align-self-center">
+						<div class="site-logo">
+							<a href="index.html"><img src="{% static 'img/logo.png' %}" alt=""></a>
+						</div>
+					</div><!--- END Col -->
+
+					<div class="col-60 d-flex">
+						<nav id="main-menu">
+							<ul>
+								<li><a href="{% url 'college:student_dashboard' %}">Home</a></li>
+								<li><a href="{% url 'college:department_list' %}">Departments</a></li>
+                                <li><a href="{% url 'college:teacher_list' %}">Teachers</a></li>
+                                <li><a href="{% url 'college:student_list' %}">Students</a></li>
+								<li><a href="{% url 'college:course_list' %}">Courses</a></li>
+								<li><a href="{% url 'college:enrollment_list' %}">Enrollments</a></li>
+							</ul>
+						</nav>
+					</div><!--- END Col -->
+
+					<div class="col-20 d-none d-xl-block text-end align-self-center">
+						{% if user.is_authenticated %}
+						<a href="{% url 'college:logout' %}" class="header-btn">Log Out</a>
+						{% else %}
+						<a href="{% url 'college:login' %}" class="header-btn">Sign In</a>
+						<a href="{% url 'college:register' %}" class="btn_one">Sign Up</a>
+						{% endif %}
+					</div><!--- END Col -->
+
+				</div><!--- END ROW -->
+			</div><!--- END CONTAINER -->
+		</div>
+		<!-- END NAVBAR -->
+{% endblock %}
+{% block content %}
+<h1>Admin Dashboard</h1>
+
+<h3>Welcome {{ request.user.username }}</h3>
+<section class="home_bg hb_height" style="background-image: url({% static '/img/bg/home-bg.jpg' %});  background-size:cover; background-position: center center;">
+			<div class="container">
+				<div class="row">
+				  <div class="col-lg-6 col-sm-12 col-xs-12">
+					<div class="hero-text ht_top">
+						<h1><span>Smart Study</span> Where Knowledge Meets the Web</h1>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, consectetur adipiscing elit tempor ut labore</p>
+					</div>
+					<div class="home_sb">
+						<form action="#" class="banner_subs">
+							<input type="text" class="form-control home_si" placeholder="Search your course here" required="required">
+							<button type="button" class="subscribe__btn">Search <i class="fa fa-paper-plane-o"></i></button>
+						</form>
+					</div>
+				  </div><!--- END COL -->
+				  <div class="col-lg-6 col-sm-12 col-xs-12">
+					<div class="hero-text-img">
+						<img src="{% static 'img/home-img2.png' %}" class="img-fluid" alt="" />
+						<div class="home_ps">
+							<span class="ti-user"></span>
+							<h2>4500+</h2>
+							<p>Active student</p>
+						</div>
+					</div>
+				  </div><!--- END COL -->
+				</div><!--- END ROW -->
+			</div><!--- END CONTAINER -->
+		</section>
+
+
+{% endblock %}
